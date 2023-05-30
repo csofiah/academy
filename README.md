@@ -1,3 +1,3 @@
 # academy
 
-Project about academy for students, using SpringBoot with MySql database
+Project about academy for students, using SpringBoot with MySql 8 database
