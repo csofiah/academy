@@ -22,7 +22,7 @@ public class StudentController {
 
     private final IStudentService service;
 
-    @Qualifier("studentMapper")
+    @Qualifier("defaultMapper")
     private final ModelMapper mapper;
 
     @GetMapping

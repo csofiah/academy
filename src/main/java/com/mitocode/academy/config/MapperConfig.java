@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MapperConfig {
 
-    @Bean("studentMapper")
+   /* @Bean("studentMapper")
     public ModelMapper studentMapper(){
         ModelMapper mapper = new ModelMapper();
         TypeMap<StudentDTO, Student> typeMap1 = mapper.createTypeMap(StudentDTO.class, Student.class);
@@ -20,7 +20,7 @@ public class MapperConfig {
         typeMap2.addMapping(Student::getIdStudent, (dest, v) -> dest.setIdStudent((Integer) v));
 
         return mapper;
-    }
+    }*/
 
     @Bean("defaultMapper")
     public ModelMapper defaultMapper(){
