@@ -11,27 +11,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Student {
+public class Course {
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Integer idStudent;
+    private Integer idCourse;
 
     @EqualsAndHashCode.Include
     @Column(length = 100, nullable = false)
     private String name;
 
-    @EqualsAndHashCode.Include
     @Column(length = 100, nullable = false)
-    private String lastName;
-
-    @Column(length = 10, nullable = false)
-    private String dni;
+    private String acronym;
 
     @Column(nullable = false)
-    private Integer age;
-
-    @Column(nullable = false)
-    private boolean enabledStudent;
+    private boolean enabledCourse;
 }
