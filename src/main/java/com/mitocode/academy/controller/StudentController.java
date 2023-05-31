@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -56,6 +57,12 @@ public class StudentController {
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) throws Exception {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/studentsByAge")
+    public ResponseEntity<List<Student>> studentsByAge() throws Exception {
+        List<Student> students = service.studentsByAge();
+        return new ResponseEntity<>(students, HttpStatus.OK);
     }
     
     private StudentDTO convertToDto(Student student) {
