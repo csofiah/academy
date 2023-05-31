@@ -58,8 +58,8 @@ public class CourseController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
-    private CourseDTO convertToDto(Course student) {
-        return mapper.map(student, CourseDTO.class);
+    private CourseDTO convertToDto(Course course) {
+        return mapper.map(course, CourseDTO.class);
     }
 
     private Course convertToEntity(CourseDTO dto){
