@@ -2,6 +2,7 @@ package com.mitocode.academy.controller;
 
 import com.mitocode.academy.dto.CourseDTO;
 import com.mitocode.academy.model.Course;
+import com.mitocode.academy.model.Student;
 import com.mitocode.academy.service.ICourseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -57,7 +59,10 @@ public class CourseController {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    
+
+
+
+
     private CourseDTO convertToDto(Course course) {
         return mapper.map(course, CourseDTO.class);
     }

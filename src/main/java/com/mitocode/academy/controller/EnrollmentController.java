@@ -2,6 +2,8 @@ package com.mitocode.academy.controller;
 
 import com.mitocode.academy.dto.EnrollmentDTO;
 import com.mitocode.academy.model.Enrollment;
+import com.mitocode.academy.model.EnrollmentDetail;
+import com.mitocode.academy.model.Student;
 import com.mitocode.academy.service.IEnrollmentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -56,6 +60,13 @@ public class EnrollmentController {
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) throws Exception {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/enrollmentsByStudents")
+    public ResponseEntity<Map<String, Map<String,List<EnrollmentDetail>>>> enrollmentsByStudents() throws Exception {
+        Map<String, Map<String,List<EnrollmentDetail>>> enrollments= service.enrollmentsByStudents();
+
+        return new ResponseEntity<>(enrollments, HttpStatus.OK);
     }
     
     private EnrollmentDTO convertToDto(Enrollment enrollment) {

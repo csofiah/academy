@@ -37,7 +37,6 @@ public class StudentServiceImpl extends CrudImpl<Student, Integer> implements IS
 
        return repo.findAll().stream()
                 .sorted(inverse)
-                .peek(e -> log.info(e.toString()))
                 .collect(Collectors.toList());
 
     }
